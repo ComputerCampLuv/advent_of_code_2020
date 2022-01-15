@@ -85,7 +85,7 @@ pub fn perform(part: u8) {
             return;
         },
         2 => (),
-        _ => panic!(),
+        _ => panic!("Part must be either '1' or '2'."),
     }
 
     let mut full_set: HashSet<usize> = HashSet::new();

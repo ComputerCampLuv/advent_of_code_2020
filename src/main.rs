@@ -6,6 +6,7 @@ mod day_13;
 mod day_14;
 mod day_15;
 mod day_16;
+mod day_17;
 mod day_2;
 mod day_3;
 mod day_4;
@@ -41,6 +42,7 @@ fn main() {
         14 => day_14::perform(part),
         15 => day_15::perform(part),
         16 => day_16::perform(part),
+        17 => day_17::perform(part),
         17..=25 => unimplemented!("I haven't got there yet!"),
         _ => panic!("Day must be between '1' and '25'."),
     };
