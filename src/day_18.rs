@@ -75,9 +75,11 @@ pub fn perform(part: u8) {
                 for line in lines {
                     if let Ok(line) = line {
                         let mut result = line.to_string();
-        
+
                         while re_par.is_match(&result) {
-                            result = re_par.replace_all(&result, handle_parenthesis_v1).to_string();
+                            result = re_par
+                                .replace_all(&result, handle_parenthesis_v1)
+                                .to_string();
                         }
 
                         while re_eval.is_match(&result) {
@@ -87,7 +89,7 @@ pub fn perform(part: u8) {
                         total += result.parse::<usize>().unwrap();
                     }
                 }
-            },
+            }
             2 => {
                 let re_add = Regex::new(r"(\d+) \+ (\d+)").unwrap();
                 let re_mul = Regex::new(r"(\d+) \* (\d+)").unwrap();
@@ -95,9 +97,11 @@ pub fn perform(part: u8) {
                 for line in lines {
                     if let Ok(line) = line {
                         let mut result = line.to_string();
-        
+
                         while re_par.is_match(&result) {
-                            result = re_par.replace_all(&result, handle_parenthesis_v2).to_string();
+                            result = re_par
+                                .replace_all(&result, handle_parenthesis_v2)
+                                .to_string();
                         }
 
                         while re_add.is_match(&result) {
@@ -110,7 +114,7 @@ pub fn perform(part: u8) {
                         total += result.parse::<usize>().unwrap();
                     }
                 }
-            },
+            }
             _ => panic!("Part must be either '1' or '2'."),
         }
         println!("Answer: {}", total);

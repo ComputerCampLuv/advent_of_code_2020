@@ -20,7 +20,7 @@ impl Cube {
             _ => panic!(),
         };
         let mut cubes = Vec::with_capacity(capacity);
-    
+
         for x in -1..=1 {
             for y in -1..=1 {
                 let mut z_start = 0;
@@ -84,10 +84,10 @@ pub fn perform(part: u8) {
     for _ in 0..6 {
         let mut transitioning_to_inactive: Vec<Cube> = Vec::new();
         let mut inactive: HashMap<Cube, usize> = HashMap::new();
-    
+
         for cube in active.iter() {
             let mut count = 0;
-    
+
             for adj_cube in cube.surrounding_cubes(dimensions) {
                 if active.contains(&adj_cube) {
                     count += 1;
@@ -96,17 +96,17 @@ pub fn perform(part: u8) {
                     *inactive_entry += 1;
                 }
             }
-    
+
             match count {
                 2 | 3 => (),
                 _ => transitioning_to_inactive.push(*cube),
             }
         }
-    
+
         for cube in transitioning_to_inactive {
             active.remove(&cube);
         }
-    
+
         for (cube, active_neighbours) in inactive {
             if active_neighbours == 3 {
                 active.insert(cube);
